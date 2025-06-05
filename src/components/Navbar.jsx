@@ -1,83 +1,84 @@
-import { useGSAP } from "@gsap/react";
-import { useEffect, useState } from "react";
-import gsap from "gsap";
-
-import Button from "./Button";
+import { useState, useEffect } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  
-  useGSAP(() => {
-    gsap.fromTo(
-      ".hero-text h1",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-    );
-  });
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
+
+  const links = [
+    { href: "#projects", label: "Projects." },
+    { href: "#experience", label: "Experience." },
+    { href: "#skills", label: "Skills." },
+    { href: "#contact", label: "Contact me." },
+  ];
 
   return (
     <header
-      className={`fixed top-3 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 bg-white transition-shadow duration-300 ${
         scrolled ? "shadow-md" : ""
-      } bg-white`}
+      }`}
     >
-      <nav className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 h-16 flex items-center">
-        {/* Logo a la izquierda */}
-        <a href="#top" className="absolute left-0">
-          <img
-            src="/logo.png"
-            alt="jesusjo logo"
-            className="h-13 w-auto object-contain"
-          />
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4 h-20">
+        {/* Logo */}
+        <a href="#top" className="z-50">
+          <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
         </a>
 
-        {/* Menú centrado */}
-        <ul className="absolute left-1/2 transform -translate-x-1/2 flex space-x-10 text-[#16697A] font-semibold text-[16px]">
-          <li>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-10 font-semibold text-[#16697A] text-[16px]">
+          {links.slice(0, 3).map(({ href, label }) => (
             <a
-              href="#projects"
+              key={href}
+              href={href}
               className="hover:text-[#FFA62B] transition-colors"
             >
-              Projects.
+              {label}
             </a>
-          </li>
-          <li>
-            <a
-              href="#experience"
-              className="hover:text-[#FFA62B] transition-colors"
-            >
-              Experience.
-            </a>
-          </li>
-          <li>
-            <a
-              href="#skills"
-              className="hover:text-[#FFA62B] transition-colors"
-            >
-              Skills.
-            </a>
-          </li>
-        </ul>
-
-        {/* Botón a la derecha */}
-        <div className="absolute right-0">
-          <Button content={"Contact me."}/>
-          {/* <a
+          ))}
+          <a
             href="#contact"
-            className="bg-[#FFA62B] text-white font-semibold px-4 py-2 rounded-md hover:bg-[#e59422] transition-colors"
+            className="ml-10 hover:text-[#FFA62B] transition-colors"
           >
             Contact me.
-          </a> */}
+          </a>
         </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          className="md:hidden text-[#16697A] text-2xl z-50"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-white shadow-md z-40">
+            <ul className="flex flex-col space-y-6 p-6 font-semibold text-[#16697A] text-lg">
+              {links.map(({ href, label }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    onClick={closeMenu}
+                    className="hover:text-[#FFA62B] transition-colors"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </nav>
     </header>
   );
