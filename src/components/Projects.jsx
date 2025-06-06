@@ -55,6 +55,7 @@ const Projects = () => {
     <section
       ref={sectionRef}
       className="relative w-full bg-white py-20 px-4 overflow-hidden"
+      id="projects"
     >
       <img
         src="/aside2.svg"

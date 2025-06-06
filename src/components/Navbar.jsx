@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { links } from "../constants";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,12 +15,7 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
-  const links = [
-    { href: "#projects", label: "Projects." },
-    { href: "#experience", label: "Experience." },
-    { href: "#skills", label: "Skills." },
-    { href: "#contact", label: "Contact me." },
-  ];
+
 
   return (
     <header
