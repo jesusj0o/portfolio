@@ -44,6 +44,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
             <a
               href="/resume.pdf"
+              download
               className="font-semibold px-6 py-3 rounded-lg shadow-md transition-colors"
               style={{
                 backgroundColor: "var(--secondary)", // #16697A
