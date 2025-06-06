@@ -1,6 +1,33 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
+  const form = useRef();
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+      () => {
+        setSent(true);
+        setLoading(false);
+        form.current.reset();
+        setTimeout(() => setSent(false), 4000);
+      },
+      (error) => {
+        console.error("Error:", error);
+        setLoading(false);
+      }
+    );
+  };
+
   return (
     <section
       id="contact"
@@ -18,12 +45,12 @@ const Contact = () => {
         </h1>
 
         <p className="text-gray-800 text-lg mb-10">
-          Have a project in mind, a job offer? Please let me know! 
+          Have a project in mind, a job offer? Please let me know!
         </p>
 
         <form
-          action="https://formspree.io/f/your-form-id" // <-- reemplaza con tu ID real o backend handler
-          method="POST"
+          ref={form}
+          onSubmit={sendEmail}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left"
         >
           <div className="flex flex-col gap-2">
@@ -36,7 +63,7 @@ const Contact = () => {
             <input
               type="text"
               id="name"
-              name="name"
+              name="user_name"
               required
               className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FFA62B]"
             />
@@ -52,7 +79,7 @@ const Contact = () => {
             <input
               type="email"
               id="email"
-              name="email"
+              name="user_email"
               required
               className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FFA62B]"
             />
@@ -78,9 +105,18 @@ const Contact = () => {
             <button
               type="submit"
               className="bg-[#16697A] text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-[#125866] transition-all"
+              disabled={loading}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {sent && (
+              <div className="md:col-span-2 text-center mt-6">
+                <div className="inline-block bg-[#FFF5E5] border border-[#FFA62B] text-[#16697A] text-sm px-6 py-4 rounded-xl shadow-lg font-medium">
+                  🎉 Your message has been sent successfully. Thank you!
+                </div>
+              </div>
+            )}
           </div>
         </form>
       </div>
