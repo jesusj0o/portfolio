@@ -8,11 +8,7 @@ import {
   FaGitAlt,
   FaGithub,
 } from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiFigma,
-  SiVite,
-} from "react-icons/si";
+import { SiTailwindcss, SiFigma, SiVite } from "react-icons/si";
 
 const skills = [
   { name: "React", icon: <FaReact size={30} color="#61DBFB" /> },
@@ -34,8 +30,11 @@ const Skills = () => {
       className="py-20 px-6 bg-white relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-5xl font-bold text-[#FFA62B] mb-12">
-          My <span className="text-[#16697A]">Tech Stack</span>
+        <h2
+          className="text-5xl font-bold mb-12"
+          style={{ color: "var(--primary)" }}
+        >
+          My <span style={{ color: "var(--secondary)" }}>Tech Stack</span>
         </h2>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
@@ -45,7 +44,12 @@ const Skills = () => {
               className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 flex flex-col items-center justify-center"
             >
               <div className="mb-3">{skill.icon}</div>
-              <span className="text-gray-800 font-medium">{skill.name}</span>
+              <span
+                className="font-medium"
+                style={{ color: "var(--text-dark)" }}
+              >
+                {skill.name}
+              </span>
             </div>
           ))}
         </div>

@@ -63,11 +63,18 @@ const Experience = () => {
       />
 
       <div className="relative max-w-5xl mx-auto z-10">
-        <h1 className="text-5xl font-bold text-[#FFA62B] mb-16 text-center">
-          Professional Work <span className="text-[#16697A]">Experience.</span>
+        <h1
+          className="text-5xl font-bold mb-16 text-center"
+          style={{ color: "var(--primary)" }}
+        >
+          Professional Work{" "}
+          <span style={{ color: "var(--secondary)" }}>Experience.</span>
         </h1>
 
-        <div className="relative before:absolute before:top-0 before:left-1/2 before:-ml-[1px] before:h-full before:w-0.5 before:bg-gradient-to-b before:from-[#FFA62B] before:to-[#16697A]">
+        <div
+          className="relative before:absolute before:top-0 before:left-1/2 before:-ml-[1px] before:h-full before:w-0.5 before:bg-gradient-to-b before:from-[#FFA62B] before:to-[#16697A]"
+          // Aquí no puedo usar variables en Tailwind, te dejo tal cual el gradiente con colores directos
+        >
           {experiences.map((exp, index) => {
             const isLeft = index % 2 === 0;
 
@@ -101,21 +108,29 @@ const Experience = () => {
                   </div>
 
                   <p className="text-sm text-gray-500 ml-2 mb-1">{exp.date}</p>
-                  <h3 className="text-xl font-semibold text-[#16697A]">
+                  <h3
+                    className="text-xl font-semibold"
+                    style={{ color: "var(--secondary)" }}
+                  >
                     {exp.title} –{" "}
-                    <span className="text-[#FFA62B]">{exp.company}</span>
+                    <span style={{ color: "var(--primary)" }}>
+                      {exp.company}
+                    </span>
                   </h3>
-                  <p className="text-gray-700 mt-2 ">{exp.description}</p>
+                  <p style={{ color: "var(--text-dark)" }} className="mt-2">
+                    {exp.description}
+                  </p>
 
                   {/* Tech stack icons */}
                   <div
                     className={`flex flex-wrap gap-3 mt-4 
-                    "justify-start text-left"`}
+                "justify-start text-left"`}
                   >
                     {exp.tech.map((tech, idx) => (
                       <span
                         key={idx}
-                        className="flex items-center gap-1 text-sm text-gray-800"
+                        className="flex items-center gap-1 text-sm"
+                        style={{ color: "var(--text-dark)" }}
                         title={tech}
                       >
                         {iconMap[tech] || (

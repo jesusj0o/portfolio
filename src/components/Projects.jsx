@@ -66,9 +66,11 @@ const Projects = () => {
       <div className="relative z-10 max-w-7xl mx-auto">
         <h1
           id="projects-title"
-          className="text-5xl font-bold text-[#FFA62B] text-center mb-12"
+          className="text-5xl font-bold text-center mb-12"
+          style={{ color: "var(--primary)" }} // #FFA62B
         >
-          Some things I've <span className="text-[#16697A]">Worked</span> on
+          Some things I've{" "}
+          <span style={{ color: "var(--secondary)" }}>Worked</span> on
         </h1>
 
         <Swiper
@@ -99,17 +101,24 @@ const Projects = () => {
                     alt={project.title}
                     className="w-full h-56 object-cover rounded-md mb-6"
                   />
-                  <h3 className="text-3xl font-semibold text-[#16697A] mb-4">
+                  <h3
+                    className="text-3xl font-semibold mb-4"
+                    style={{ color: "var(--secondary)" }} // #16697A
+                  >
                     {project.title}
                   </h3>
-                  <p className="text-gray-700 mb-6 text-base leading-relaxed">
+                  <p
+                    className="mb-6 text-base leading-relaxed"
+                    style={{ color: "var(--text-dark)" }} // #2E2E2E
+                  >
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-3 mb-6">
                     {project.tech.map((tech, j) => (
                       <span
                         key={j}
-                        className="flex items-center gap-1 text-sm text-gray-800"
+                        className="flex items-center gap-1 text-sm"
+                        style={{ color: "var(--text-dark)" }} // #2E2E2E
                       >
                         {iconMap[tech]} <span>{tech}</span>
                       </span>
@@ -121,7 +130,8 @@ const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-[#16697A] hover:underline"
+                    className="text-sm font-medium hover:underline"
+                    style={{ color: "var(--secondary)" }} // #16697A
                   >
                     Live Demo
                   </a>
@@ -137,13 +147,18 @@ const Projects = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-[#16697A]"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={3}
+              style={{ color: "var(--secondary)" }} // #16697A
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </button>
           <button
@@ -152,13 +167,18 @@ const Projects = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-[#16697A]"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={3}
+              style={{ color: "var(--secondary)" }} // #16697A
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           </button>
         </Swiper>
