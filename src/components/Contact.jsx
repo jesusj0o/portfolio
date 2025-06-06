@@ -14,7 +14,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
+    emailjs.sendForm("service_846ud7e", "template_oi7k8a8", form.current, "yWF_gvqP59FiH").then(
       () => {
         setSent(true);
         setLoading(false);
