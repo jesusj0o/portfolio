@@ -8,7 +8,7 @@ import {
   FaGitAlt,
   FaGithub,
 } from "react-icons/fa";
-import { SiTailwindcss, SiFigma, SiVite } from "react-icons/si";
+import { SiTailwindcss, SiFigma, SiVite, SiThreedotjs } from "react-icons/si";
 
 const skills = [
   { name: "React", icon: <FaReact size={30} color="#61DBFB" /> },
@@ -18,7 +18,7 @@ const skills = [
   { name: "Tailwind", icon: <SiTailwindcss size={30} color="#38BDF8" /> },
   { name: "Bootstrap", icon: <FaBootstrap size={30} color="#8e2bff" /> },
   { name: "Figma", icon: <SiFigma size={30} color="#2e2e2e" /> },
-  { name: "Vite", icon: <SiVite size={30} color="#646CFF" /> },
+  { name: "Threejs", icon: <SiThreedotjs size={30} color="#2e2e2e" /> },
   { name: "Git", icon: <FaGitAlt size={30} color="#F1502F" /> },
   { name: "GitHub", icon: <FaGithub size={30} color="#000000" /> },
 ];
