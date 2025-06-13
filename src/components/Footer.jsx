@@ -1,5 +1,4 @@
-import { section } from "framer-motion/client";
-import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub, FaMedium } from "react-icons/fa";
 import { PiCoffeeFill, PiThreadsLogo } from "react-icons/pi";
 
 const Footer = () => {
@@ -63,6 +62,15 @@ const Footer = () => {
               aria-label="Buy Me a Coffee"
             >
               <PiCoffeeFill />
+            </a>
+               <a
+              href="https://medium.com/@jesusjo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#FFA62B] transition"
+              aria-label="Medium"
+            >
+              <FaMedium />
             </a>
           </div>
         </div>
