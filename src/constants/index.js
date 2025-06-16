@@ -39,6 +39,14 @@ export const projects = [
     tech: ["React", "Bootstrap", "Figma"],
     demo: "https://levisoftteam.netlify.app/",
   },
+    {
+    title: "CSS Grid Generator",
+    description:
+      "Platform to generate css grids in a quick way by click and drag the desired rows and cols",
+    image: "/css.png",
+    tech: ["React", "Tailwind"],
+    demo: "https://css-grid-generator-react.netlify.app/",
+  },
 ];
 
 export const experiences = [
