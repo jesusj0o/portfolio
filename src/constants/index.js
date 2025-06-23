@@ -1,10 +1,9 @@
-  export const links = [
-    { href: "#projects", label: "Projects." },
-    { href: "#experience", label: "Experience." },
-    { href: "#skills", label: "Skills." },
-    { href: "#contact", label: "Contact me." },
-  ];
-
+export const links = [
+  { href: "#projects", label: "Projects." },
+  { href: "#experience", label: "Experience." },
+  { href: "#skills", label: "Skills." },
+  { href: "#contact", label: "Contact me." },
+];
 
 export const projects = [
   {
@@ -39,7 +38,7 @@ export const projects = [
     tech: ["React", "Bootstrap", "Figma"],
     demo: "https://levisoftteam.netlify.app/",
   },
-    {
+  {
     title: "CSS Grid Generator",
     description:
       "Platform to generate css grids in a quick way by click and drag the desired rows and cols",
@@ -77,23 +76,30 @@ export const experiences = [
     company: "Switchfly (Encora Client)",
     logo: "/logos/switchfly-signet.svg",
     tech: ["JS", "CSS", "Jira", "Splunk", "Git", "Gitlab"],
-    description:
-      `Contributed to bug resolution, worked as a member of the Product Support Engineering (PSE) team at
+    description: `Contributed to bug resolution, worked as a member of the Product Support Engineering (PSE) team at
       resolving bugs related to the Front End by applying solutions in JavaScript and the Ember framework.
       Also contributed to bus investigation and it's possible solution. Contributed to log monitoring at each new 
       release of the app.`,
   },
+
   {
-    date: "Mar 2022 - Feb 2023",
+    date: "Nov 2022 - Feb 2023",
+    title: "Junior Software Engineer",
+    company: "Points (Encora Client)",
+    logo: "/logos/points-logo.png",
+    tech: ["Node", "Postman", "Jira", "Splunk", "Git", "Gitlab"],
+    description: `Joined to Data team at Points and contributed to the creation of a new feature for the main admin app, creating an API using Nodejs and Express
+    and inplementing Tableau in order to retrieve reports and display them using the API to check permissions and groups and show reports according users credentials
+    `,
+  },
+  {
+    date: "Mar 2022 - Nov 2022",
     title: "Junior Software Engineer",
     company: "Points (Encora Client)",
     logo: "/logos/points-logo.png",
     tech: ["Python", "Postman", "Jira", "Splunk", "Git", "Github"],
-    description: `Joined to Points team and contributed to a SSO migrations temporal project where my main tool was 
-      Splunk and Postman after validate xml data by runnuing automated tests.
-      \nAfter finished that project, joined to another team where I worked in a new module for the main Points app, 
-      implemented a module to retrieve data from tableau and display it at the main dashboard 
-      `,
+    description: `Joined to Delivery Integrations team at Points and contributed to a SSO migrations temporal project where my main tool was 
+      Splunk and Postman after validate xml data by runnuing automated tests.`,
   },
   {
     date: "Sept 2021 - Mar 2022",
